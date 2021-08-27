@@ -127,7 +127,11 @@ document.querySelector('#book-list').addEventListener('click', (e) => {
 
     // Remove book from store
     Store.removeBook
-    (e.target.parentElement.previousElementSibling.innerHTML);
+        (e.target.parentElement.previousElementSibling.innerHTML.trim());
+    /**
+     * trim() removes whitespaces from trings and numbers
+     * I noticed your the isbn you were passing had a whitespace at the end that's why it was never equal to what was coming from localStorage
+     */
 
      // show success message
      UI.showAlert('Book Removed', 'success')
